@@ -1,0 +1,31 @@
+This repository contains the official implementation of the Enhanced Spectral Graph Neural Network, a deep learning architecture designed for high-fidelity monocular depth estimation by combining CNN backbones with adaptive spectral graph convolutions.
+🚀 Key Features
+
+    Adaptive Graph Topology: Dynamically learns spatial relationships between feature nodes rather than using fixed grids.
+
+    Spectral Reasoning: Utilizes Chebyshev Polynomials for efficient spectral graph convolutions to capture global context.
+
+    Multi-Scale Attention: Integrated CBAM (Convolutional Block Attention Module) and ASPP (Atrous Spatial Pyramid Pooling) for robust feature extraction.
+
+    Edge-Aware Refinement: A progressive decoder with attention-based skip connections to preserve sharp depth boundaries.
+
+🏗️ Architecture Overview
+
+The model follows a three-stage pipeline:
+
+    Enhanced Backbone: Multi-scale feature extraction (ResNet/Swin) refined by FPN and CBAM.
+
+    Adaptive Graph Module: Global context modeling via dynamic topology and spectral filtering.
+
+    Enhanced Decoder: Progressive upsampling with multi-scale supervision and uncertainty estimation.
+
+
+📈 Loss Functions
+
+The model is optimized using a weighted combination of:
+
+    SILog Loss: Scale-Invariant Logarithmic loss for global depth accuracy.
+
+    Multi-Scale Gradient Loss: For edge sharpness.
+
+    Spectral Consistency Loss: To align depth discontinuities with image gradients.
